@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Datenschutzerkl&auml;rung &ndash; easymmo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Datenschutzerkl&auml;rung der easymmo App nach Art. 13 DSGVO. easymmo ist local-first &mdash; deine Daten bleiben auf deinem Ger&auml;t.">
+    <meta name="robots" content="noindex">
+    <style>
+        :root {
+            --ink:    #16223c;
+            --text:   #3c4350;
+            --muted:  #86868b;
+            --link:   #2563eb;
+            --accent: #1d4ed8;
+            --bg:     #f4f4f6;
+            --card:   #ffffff;
+            --line:   #ededf0;
+            --soft:   #eef2ff;
+        }
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0;
+            padding: 44px 20px 40px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .wrap { max-width: 760px; margin: 0 auto; }
+
+        /* Language switch */
+        .lang-radio { position: absolute; opacity: 0; pointer-events: none; }
+        .top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 4px 4px 12px;
+        }
+        .brand { display: flex; align-items: center; gap: 14px; }
+        .logo {
+            width: 52px; height: 52px;
+            border-radius: 13px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 6px 18px rgba(45,143,217,.28);
+        }
+        .brand-name { color: var(--ink); font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+        .brand-name a { color: var(--ink); text-decoration: none; }
+        .lang {
+            display: inline-flex;
+            background: var(--card);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.05), 0 6px 18px rgba(22,34,60,.05);
+            flex: none;
+        }
+        .lang label {
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            user-select: none;
+            transition: background .18s, color .18s;
+        }
+        .lang label:hover { color: var(--ink); }
+        #lang-de:checked ~ .wrap .lang label[for="lang-de"],
+        #lang-en:checked ~ .wrap .lang label[for="lang-en"] {
+            background: var(--ink);
+            color: #fff;
+        }
+        .en { display: none; }
+        #lang-en:checked ~ .wrap .de { display: none; }
+        #lang-en:checked ~ .wrap .en { display: block; }
+
+        /* Back-link bar */
+        .back {
+            margin: 0 4px 24px;
+            font-size: 14px;
+        }
+        .back a { color: var(--muted); font-weight: 600; }
+        .back a:hover { color: var(--link); }
+
+        /* Header card */
+        .doc-head {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 38px 40px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.04), 0 14px 36px rgba(22,34,60,.07);
+        }
+        .doc-head h1 {
+            color: var(--ink);
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 12px;
+            line-height: 1.18;
+        }
+        .doc-head .subtitle {
+            color: var(--text);
+            font-size: 17px;
+            margin: 0 0 16px;
+            max-width: 60ch;
+        }
+        .stamp {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Section cards */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 28px 36px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.04), 0 10px 30px rgba(22,34,60,.04);
+        }
+        .card h2 {
+            color: var(--ink);
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 0 0 14px;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+        .card h2 .num {
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+            font-weight: 800;
+            min-width: 28px;
+        }
+        .card p { margin: 0 0 12px; }
+        .card p:last-child { margin-bottom: 0; }
+        .card ul { margin: 6px 0 0; padding: 0 0 0 0; list-style: none; }
+        .card li {
+            position: relative;
+            padding: 4px 0 4px 22px;
+        }
+        .card li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 14px;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        a { color: var(--link); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        .contact-block {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin: 8px 0 0;
+            white-space: pre-line;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer-card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 24px 36px;
+            margin-top: 24px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.04), 0 10px 30px rgba(22,34,60,.05);
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 22px;
+            margin: 0 0 12px;
+            padding: 0;
+            list-style: none;
+        }
+        .footer-meta { color: var(--muted); font-size: 14px; margin: 0; }
+
+        /* English summary */
+        .en-note {
+            background: #fff8e6;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #6b4f1a;
+            margin: 0 0 18px;
+        }
+
+        @media (max-width: 620px) {
+            .doc-head { padding: 28px 22px; }
+            .doc-head h1 { font-size: 30px; }
+            .card { padding: 22px 22px; }
+            .card h2 { font-size: 19px; }
+            .brand-name { font-size: 22px; }
+            .logo { width: 44px; height: 44px; border-radius: 11px; }
+        }
+    </style>
+</head>
+<body>
+    <input class="lang-radio" type="radio" name="lang" id="lang-de" checked>
+    <input class="lang-radio" type="radio" name="lang" id="lang-en">
+
+    <div class="wrap">
+        <header class="top">
+            <div class="brand">
+                <a href="index.html" aria-label="Zur Startseite">
+                    <img class="logo" src="icon.png" alt="easymmo App-Icon" width="52" height="52">
+                </a>
+                <div class="brand-name"><a href="index.html">easymmo</a></div>
+            </div>
+            <div class="lang" role="group" aria-label="Sprache / Language">
+                <label for="lang-de">Deutsch</label>
+                <label for="lang-en">English</label>
+            </div>
+        </header>
+
+        <p class="back de">&larr; <a href="index.html">Zur&uuml;ck zur Startseite</a></p>
+        <p class="back en">&larr; <a href="index.html">Back to home</a></p>
+
+        <!-- ============ DE: VOLLST&Auml;NDIGE DATENSCHUTZERKL&Auml;RUNG ============ -->
+        <div class="de">
+            <section class="doc-head">
+                <h1>Datenschutzerkl&auml;rung</h1>
+                <p class="subtitle">Informationen zur Verarbeitung personenbezogener Daten in der App &bdquo;easymmo&ldquo; gem&auml;&szlig; Art.&nbsp;13 DSGVO.</p>
+                <span class="stamp">Stand: 28.&nbsp;Mai 2026</span>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">1.</span> Verantwortlicher</h2>
+                <p>Verantwortlich f&uuml;r die Verarbeitung personenbezogener Daten in der App &bdquo;easymmo&ldquo; im Sinne der DSGVO ist:</p>
+                <div class="contact-block">Alexander Shagov
+
+E-Mail: <a href="mailto:alexshagov@me.com">alexshagov@me.com</a></div>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">2.</span> Grundsatz: Datenspeicherung auf Ihrem Ger&auml;t</h2>
+                <p>Die App ist nach dem Prinzip &bdquo;local-first&ldquo; konzipiert. Alle von Ihnen eingegebenen Immobilien-Daten, Berechnungen, Notizen, Fotos und Kontakte werden ausschlie&szlig;lich lokal auf Ihrem Ger&auml;t in einer verschl&uuml;sselten SwiftData-Datenbank gespeichert.</p>
+                <p>Eine &Uuml;bertragung an Server des Anbieters findet grunds&auml;tzlich nicht statt. Sie behalten jederzeit die volle Kontrolle &uuml;ber Ihre Daten.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">3.</span> Anmeldedaten</h2>
+                <p>Sie k&ouml;nnen die App ohne Anmeldung im Gast-Modus nutzen. Wenn Sie sich anmelden, verarbeiten wir folgende Daten:</p>
+                <ul>
+                    <li>Apple Sign-In: anonymisierte Apple-User-ID, optional vollst&auml;ndiger Name und E-Mail-Adresse (Sie entscheiden bei jeder Anmeldung, welche Daten geteilt werden)</li>
+                    <li>E-Mail-Registrierung: Vor- und Nachname, E-Mail-Adresse, ein als Salted-Hash im Apple-Keychain abgelegtes Passwort (das Klartext-Passwort wird nicht gespeichert)</li>
+                    <li>Google Sign-In (optional): bei Aktivierung werden Name und E-Mail-Adresse von Google an die App &uuml;bermittelt</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">4.</span> Optionale KI-Funktionen</h2>
+                <p>Die App bietet optionale KI-Unterst&uuml;tzung zur Auswertung von Immobilien-Expos&eacute;s. Diese Funktion ist standardm&auml;&szlig;ig deaktiviert. Sie aktivieren sie ausdr&uuml;cklich in den Einstellungen.</p>
+                <ul>
+                    <li>Apple Intelligence: Verarbeitung erfolgt vollst&auml;ndig auf Ihrem Ger&auml;t. Keine Daten&uuml;bertragung an Dritte.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">5.</span> Berechtigungen auf dem Ger&auml;t</h2>
+                <p>Die App kann den Zugriff auf folgende Funktionen Ihres Ger&auml;ts anfordern. Sie k&ouml;nnen diese in den iOS-Systemeinstellungen jederzeit widerrufen:</p>
+                <ul>
+                    <li>Kamera: zum Scannen von Immobilien-Expos&eacute;s</li>
+                    <li>Fotos: zur Auswahl von Bildern zu einer Immobilie</li>
+                    <li>Kalender: zum Anlegen von Besichtigungs- und Notarterminen</li>
+                    <li>Mitteilungen: f&uuml;r Erinnerungen an anstehende Termine</li>
+                    <li>Standort: zur Geocodierung von Adressen f&uuml;r die Karten-Ansicht</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">6.</span> Rechtsgrundlagen</h2>
+                <p>Die Verarbeitung Ihrer Daten erfolgt auf Grundlage von Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO (Vertragserf&uuml;llung &mdash; Bereitstellung der App-Funktionen) sowie Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO (Einwilligung &mdash; soweit Sie KI-Funktionen oder Ger&auml;te-Berechtigungen aktivieren).</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">7.</span> Speicherdauer</h2>
+                <p>Lokale Daten verbleiben auf Ihrem Ger&auml;t, bis Sie diese l&ouml;schen oder die App entfernen.</p>
+                <p>Konto-Daten werden gespeichert, solange Ihr Konto besteht. Bei L&ouml;schung des Kontos in den Profil-Einstellungen werden zugeh&ouml;rige Anmeldedaten entfernt; lokale Berechnungen bleiben unber&uuml;hrt.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">8.</span> Weitergabe an Dritte</h2>
+                <p>Eine Weitergabe Ihrer Daten an Dritte findet ausschlie&szlig;lich in den folgenden F&auml;llen statt:</p>
+                <ul>
+                    <li>Apple Inc. &mdash; im Rahmen der Apple-Sign-In-Funktion und der iCloud-Ger&auml;teintegration (Datenschutz: <a href="https://www.apple.com/legal/privacy" rel="noopener" target="_blank">https://www.apple.com/legal/privacy</a>)</li>
+                    <li>Google LLC &mdash; nur bei aktiviertem Google-Sign-In (Datenschutz: <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">https://policies.google.com/privacy</a>)</li>
+                    <li>Geltende gesetzliche Verpflichtungen &mdash; falls Beh&ouml;rden eine Herausgabe rechtm&auml;&szlig;ig anordnen</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">9.</span> &Uuml;bermittlung in Drittl&auml;nder (USA)</h2>
+                <p>Sofern Sie die optionale Anmeldung mit Google Sign-In aktivieren, werden personenbezogene Daten an Server der Google LLC in den Vereinigten Staaten von Amerika &uuml;bermittelt. Die USA gelten als Drittland im Sinne von Art.&nbsp;44 ff. DSGVO.</p>
+                <p>Google hat sich dem EU-US Data Privacy Framework (DPF) unterworfen. Die EU-Kommission hat mit Angemessenheitsbeschluss vom 10.&nbsp;Juli 2023 festgestellt, dass f&uuml;r unter dem DPF zertifizierte Empf&auml;nger ein angemessenes Datenschutzniveau besteht (Art.&nbsp;45 DSGVO). Daneben gelten erg&auml;nzend Standardvertragsklauseln (SCC) der EU-Kommission gem&auml;&szlig; Art.&nbsp;46 Abs.&nbsp;2 lit.&nbsp;c DSGVO.</p>
+                <p>Sie k&ouml;nnen diese Daten&uuml;bermittlung jederzeit unterbinden, indem Sie sich nicht mit Google anmelden oder Ihr Google-Konto in den Profil-Einstellungen entkoppeln.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">10.</span> Ihre Rechte</h2>
+                <p>Ihnen stehen unter den gesetzlichen Voraussetzungen folgende Rechte zu:</p>
+                <ul>
+                    <li>Auskunft &uuml;ber die zu Ihrer Person gespeicherten Daten (Art.&nbsp;15 DSGVO)</li>
+                    <li>Berichtigung unrichtiger Daten (Art.&nbsp;16 DSGVO)</li>
+                    <li>L&ouml;schung Ihrer Daten (Art.&nbsp;17 DSGVO)</li>
+                    <li>Einschr&auml;nkung der Verarbeitung (Art.&nbsp;18 DSGVO)</li>
+                    <li>Daten&uuml;bertragbarkeit (Art.&nbsp;20 DSGVO)</li>
+                    <li>Widerruf erteilter Einwilligungen mit Wirkung f&uuml;r die Zukunft (Art.&nbsp;7 Abs.&nbsp;3 DSGVO)</li>
+                    <li>Widerspruch gegen die Verarbeitung (Art.&nbsp;21 DSGVO)</li>
+                    <li>Beschwerde bei einer Datenschutz-Aufsichtsbeh&ouml;rde (Art.&nbsp;77 DSGVO)</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">11.</span> Datensicherheit</h2>
+                <p>Sensible Daten wie API-Schl&uuml;ssel oder Passwort-Hashes werden im Apple-Keychain abgelegt und nutzen die ger&auml;teseitige Verschl&uuml;sselung von iOS.</p>
+                <p>Die SwiftData-Datenbank wird durch die iOS-Ger&auml;teverschl&uuml;sselung gesch&uuml;tzt. Verwenden Sie einen Ger&auml;te-Code oder Face/Touch-ID, um den Zugriff zu sichern.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">12.</span> Keine automatisierten Entscheidungen</h2>
+                <p>Es findet keine automatisierte Entscheidungsfindung im Sinne von Art.&nbsp;22 DSGVO statt. Investitionsentscheidungen treffen Sie eigenverantwortlich. Die App liefert ausschlie&szlig;lich unverbindliche Kalkulationen.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">13.</span> Zust&auml;ndige Aufsichtsbeh&ouml;rde</h2>
+                <p>Unbeschadet anderweitiger Rechtsbehelfe steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbeh&ouml;rde zu, insbesondere in dem Mitgliedstaat Ihres gew&ouml;hnlichen Aufenthaltsorts (Art.&nbsp;77 DSGVO).</p>
+                <p>Die f&uuml;r den Anbieter zust&auml;ndige Aufsichtsbeh&ouml;rde richtet sich nach dem Sitz des Anbieters in Deutschland. Eine &Uuml;bersicht aller deutschen Datenschutz-Aufsichtsbeh&ouml;rden finden Sie unter: <a href="https://www.bfdi.bund.de/DE/Service/Anschriften/anschriften_table.html" rel="noopener" target="_blank">bfdi.bund.de</a></p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">14.</span> &Auml;nderungen dieser Erkl&auml;rung</h2>
+                <p>Wir behalten uns vor, diese Datenschutzerkl&auml;rung anzupassen, wenn sich Funktionen der App oder rechtliche Rahmenbedingungen &auml;ndern. Die jeweils aktuelle Version ist in der App abrufbar.</p>
+            </section>
+
+            <footer class="footer-card">
+                <ul class="footer-links">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="support.html">Support &amp; FAQ</a></li>
+                    <li><a href="agb.html">AGB</a></li>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></li>
+                </ul>
+                <p class="footer-meta">&copy; 2026 Alexander Shagov &middot; easymmo. Alle Rechte vorbehalten.</p>
+            </footer>
+        </div>
+
+        <!-- ============ EN: SHORT NOTE + PRIVACY AT A GLANCE ============ -->
+        <div class="en">
+            <section class="doc-head">
+                <h1>Privacy Notice</h1>
+                <p class="subtitle">easymmo is a German app. The legally binding privacy notice is provided in German only &mdash; below is a short English summary for your convenience.</p>
+                <span class="stamp">Last updated: 28&nbsp;May 2026</span>
+            </section>
+
+            <div class="en-note">
+                <strong>Legal note:</strong> Only the <a href="#" onclick="document.getElementById('lang-de').checked=true;return false;">German version</a> is legally binding. This English summary is informational.
+            </div>
+
+            <section class="card">
+                <h2><span class="num">1.</span> Controller</h2>
+                <p>The controller for data processing in the easymmo app under the GDPR is:</p>
+                <div class="contact-block">Alexander Shagov
+
+Email: <a href="mailto:alexshagov@me.com">alexshagov@me.com</a></div>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">2.</span> Local-first by design</h2>
+                <p>easymmo is local-first: all your real estate data, calculations, notes, photos and contacts are stored exclusively on your device in an encrypted SwiftData database.</p>
+                <p>Nothing is transmitted to any servers we operate &mdash; we don&rsquo;t run any. You retain full control over your data at all times.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">3.</span> Sign-in is optional</h2>
+                <p>You can use the app in guest mode without signing in. If you sign in, we process the following data:</p>
+                <ul>
+                    <li>Sign in with Apple: anonymised Apple user ID, optionally full name and email (you decide what to share at each sign-in)</li>
+                    <li>Email registration: first and last name, email address, password stored as a salted hash in the Apple Keychain (plaintext is never stored)</li>
+                    <li>Google Sign-In (optional): name and email are transmitted from Google to the app when enabled</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">4.</span> AI features are on-device</h2>
+                <p>The optional AI document scan uses <strong>Apple Intelligence on-device only</strong>. No data is sent to third parties. The feature is off by default and must be enabled explicitly.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">5.</span> Device permissions</h2>
+                <p>The app may request access to: camera (scan listings), photos (attach images), calendar (viewing and notary dates), notifications (reminders) and location (geocoding for the map view). You can revoke each permission in iOS Settings at any time.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">6.</span> Third parties</h2>
+                <p>Data is only shared with Apple Inc. (Sign in with Apple, iCloud integration), Google LLC (only with Google Sign-In enabled), or where required by applicable law.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">7.</span> Your rights under the GDPR</h2>
+                <p>You have the right to access (Art.&nbsp;15), rectification (Art.&nbsp;16), erasure (Art.&nbsp;17), restriction (Art.&nbsp;18), portability (Art.&nbsp;20), withdrawal of consent (Art.&nbsp;7&nbsp;(3)), objection (Art.&nbsp;21), and to lodge a complaint with a supervisory authority (Art.&nbsp;77 GDPR).</p>
+                <p>To exercise any of these rights, contact <a href="mailto:alexshagov@me.com">alexshagov@me.com</a>.</p>
+            </section>
+
+            <section class="card">
+                <h2><span class="num">8.</span> Read the full notice</h2>
+                <p>For the complete, legally binding text in German, switch to <a href="#" onclick="document.getElementById('lang-de').checked=true;return false;">Deutsch</a> using the language switch above.</p>
+            </section>
+
+            <footer class="footer-card">
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="support.html">Support &amp; FAQ</a></li>
+                    <li><a href="agb.html">Terms</a></li>
+                    <li><a href="impressum.html">Imprint</a></li>
+                    <li><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></li>
+                </ul>
+                <p class="footer-meta">&copy; 2026 Alexander Shagov &middot; easymmo. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

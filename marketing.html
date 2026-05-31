@@ -132,6 +132,13 @@
         .btn-app .apple { font-size: 22px; line-height: 1; }
         .btn-app small { display: block; font-size: 11px; font-weight: 500; opacity: .75; }
         .btn-app strong { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+        .btn-app.is-coming {
+            background: #4a5468;
+            cursor: not-allowed;
+            opacity: .9;
+        }
+        .btn-app.is-coming:hover { transform: none; box-shadow: 0 8px 24px rgba(22,34,60,.18); }
+        .badge-hint { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
         .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
         .pill {
             background: var(--soft);
@@ -256,11 +263,13 @@
             <h1>Immobilien rechnen, bevor du unterschreibst.</h1>
             <p class="lede">easymmo ist dein pers&ouml;nlicher Immobilien-Kalkulator f&uuml;r iPhone &mdash; Cashflow, AfA, Tilgung und Rendite. Komplett offline. Deine Daten bleiben auf deinem Ger&auml;t.</p>
             <div class="badge-row">
-                <a class="btn-app" href="https://apps.apple.com/de/app/easymmo/idXXXXXXXXX" aria-label="easymmo im App Store laden">
+                <!-- TODO vor Submit: <a> wiederherstellen mit echter App-Store-ID, "is-coming" entfernen, "aria-disabled" raus -->
+                <span class="btn-app is-coming" role="link" aria-disabled="true" aria-label="easymmo erscheint bald im App Store">
                     <span class="apple" aria-hidden="true">&#xf8ff;</span>
-                    <span><small>Laden im</small><strong>App Store</strong></span>
-                </a>
+                    <span><small>Demn&auml;chst im</small><strong>App Store</strong></span>
+                </span>
             </div>
+            <p class="badge-hint">Die App befindet sich aktuell im finalen Review &mdash; trag dich gerne per E&#8209;Mail bei uns ein, wir geben Bescheid, sobald sie verf&uuml;gbar ist.</p>
             <div class="pills" aria-label="Highlights">
                 <span class="pill">Kostenlos</span>
                 <span class="pill">Keine Werbung</span>
@@ -274,11 +283,13 @@
             <h1>Do the math before you sign.</h1>
             <p class="lede">easymmo is your personal real estate calculator for iPhone &mdash; cashflow, depreciation, amortization and yield. Fully offline. Your data stays on your device.</p>
             <div class="badge-row">
-                <a class="btn-app" href="https://apps.apple.com/de/app/easymmo/idXXXXXXXXX" aria-label="Download easymmo on the App Store">
+                <!-- TODO before submit: restore <a> with the real App Store ID, drop "is-coming" + aria-disabled -->
+                <span class="btn-app is-coming" role="link" aria-disabled="true" aria-label="easymmo is coming soon to the App Store">
                     <span class="apple" aria-hidden="true">&#xf8ff;</span>
-                    <span><small>Download on the</small><strong>App Store</strong></span>
-                </a>
+                    <span><small>Coming soon to the</small><strong>App Store</strong></span>
+                </span>
             </div>
+            <p class="badge-hint">The app is in its final review &mdash; drop us a line and we&rsquo;ll let you know as soon as it&rsquo;s live.</p>
             <div class="pills" aria-label="Highlights">
                 <span class="pill">Free</span>
                 <span class="pill">No ads</span>

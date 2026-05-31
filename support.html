@@ -128,6 +128,16 @@
         .faq-a { padding: 0 0 18px; max-width: 60ch; }
 
         .footer { color: var(--muted); font-size: 14px; padding: 8px 4px 0; }
+.footer-card {
+background: var(--card);
+border-radius: 20px;
+padding: 24px 36px;
+margin-top: 8px;
+box-shadow: 0 1px 2px rgba(22,34,60,.04), 0 10px 30px rgba(22,34,60,.05);
+}
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 12px; padding: 0; list-style: none; }
+.footer-meta { color: var(--muted); font-size: 14px; margin: 0; }
+
 
         @media (max-width: 520px) {
             h1 { font-size: 32px; }
@@ -286,8 +296,26 @@
             <p>easymmo works offline &ndash; your data stays on your device. You can find the full privacy policy any time in the app under <strong>Profil&nbsp;&rsaquo;&nbsp;Datenschutz&nbsp;&amp;&nbsp;Rechtliches</strong> (Privacy &amp; Legal).</p>
         </section>
 
-        <p class="footer de">&copy; 2026 easymmo. Alle Rechte vorbehalten.</p>
-        <p class="footer en">&copy; 2026 easymmo. All rights reserved.</p>
+        <footer class="footer-card de">
+<ul class="footer-links">
+<li><a href="support.html">Support &amp; FAQ</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+<li><a href="agb.html">AGB</a></li>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></li>
+</ul>
+<p class="footer-meta">&copy; 2026 Alexander Shagov &middot; easymmo. Alle Rechte vorbehalten.</p>
+</footer>
+<footer class="footer-card en">
+<ul class="footer-links">
+<li><a href="support.html">Support &amp; FAQ</a></li>
+<li><a href="datenschutz.html">Privacy</a></li>
+<li><a href="agb.html">Terms</a></li>
+<li><a href="impressum.html">Imprint</a></li>
+<li><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></li>
+</ul>
+<p class="footer-meta">&copy; 2026 Alexander Shagov &middot; easymmo. All rights reserved.</p>
+</footer>
     </div>
 </body>
 </html>

@@ -1,53 +1,293 @@
-<!DOCTYPE html>
-  <html lang="de">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easymmo – Support</title>
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>easymmo &ndash; Support &amp; Hilfe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Support und h&auml;ufige Fragen zur easymmo App. Support and FAQ for the easymmo app.">
     <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      color: #333;
-      background: #f9f9f9;
-      }
-    h1 { color: #1a1a2e; font-size: 2em; }
-    h2 { color: #16213e; margin-top: 30px; }
-    a { color: #0066cc; }
-    .card {
-            background: #fff;
-            border-radius: 12px;
-      padding: 24px;
-      margin: 20px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-    footer { margin-top: 40px; font-size: 0.85em; color: #888; }
-  </style>
-    </head>
-    <body>
-      <h1>Easymmo Support</h1>
-      <div class="card">
-        <h2>Kontakt</h2>
-        <p>Bei Fragen oder Problemen mit der Easymmo App erreichst du uns per E-Mail:</p>
-        <p><a href="mailto:support@easymmo.app">support@easymmo.app</a></p>
-      </div>
-      <div class="card">
-        <h2>Haeufig gestellte Fragen (FAQ)</h2>
-        <p><strong>Wie kann ich mein Konto loeschen?</strong><br>
-        Sende uns eine E-Mail an die oben genannte Adresse mit dem Betreff "Konto loeschen".</p>
-        <p><strong>Die App funktioniert nicht – was tun?</strong><br>
-        Bitte starte die App neu oder aktualisiere sie auf die neueste Version im App Store.</p>
-    <p><strong>Wie kann ich meine Daten exportieren?</strong><br>
-        Diese Funktion steht in den App-Einstellungen unter "Datenschutz" zur Verfuegung.</p>
-      </div>
-      <div class="card">
-        <h2>Datenschutz</h2>
-        <p>Informationen zu unserer Datenschutzrichtlinie findest du in der App unter Einstellungen &gt; Datenschutz.</p>
-      </div>
-      <footer>
-        <p>&copy; 2026 Easymmo. Alle Rechte vorbehalten.</p>
-  </footer>
+        :root {
+            --ink:    #16223c;
+            --text:   #3c4350;
+            --muted:  #86868b;
+            --link:   #2563eb;
+            --bg:     #f4f4f6;
+            --card:   #ffffff;
+            --line:   #ededf0;
+        }
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 44px 20px 40px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .wrap { max-width: 720px; margin: 0 auto; }
+
+        .top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 4px 4px 8px;
+        }
+        h1 {
+            color: var(--ink);
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+        .subtitle { color: var(--muted); margin: 6px 4px 28px; font-size: 17px; }
+
+        /* Language switch — pure CSS via radio + :checked */
+        .lang-radio { position: absolute; opacity: 0; pointer-events: none; }
+        .lang {
+            display: inline-flex;
+            background: var(--card);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.05), 0 6px 18px rgba(22,34,60,.05);
+            flex: none;
+        }
+        .lang label {
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            user-select: none;
+            transition: background .18s, color .18s;
+        }
+        .lang label:hover { color: var(--ink); }
+        #lang-de:checked ~ .wrap .lang label[for="lang-de"],
+        #lang-en:checked ~ .wrap .lang label[for="lang-en"] {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        /* Show DE by default, EN when its radio is checked */
+        .en { display: none; }
+        #lang-en:checked ~ .wrap .de { display: none; }
+        #lang-en:checked ~ .wrap .en { display: block; }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 30px 36px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 2px rgba(22,34,60,.04), 0 10px 30px rgba(22,34,60,.05);
+        }
+        .card h2 {
+            color: var(--ink);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 0 0 16px;
+        }
+        .card p { margin: 0 0 14px; }
+        .card p:last-child { margin-bottom: 0; }
+        a { color: var(--link); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        .email { font-size: 18px; }
+        .note { font-size: 15px; color: var(--muted); }
+
+        details.faq-item { border-bottom: 1px solid var(--line); }
+        details.faq-item:last-child { border-bottom: 0; }
+        details.faq-item > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 18px 0;
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        details.faq-item > summary::-webkit-details-marker { display: none; }
+        details.faq-item > summary::after {
+            content: "";
+            width: 9px; height: 9px;
+            border-right: 2px solid var(--muted);
+            border-bottom: 2px solid var(--muted);
+            transform: rotate(45deg);
+            transition: transform .2s ease;
+            flex: none;
+            margin: 2px 4px 0 0;
+        }
+        details.faq-item[open] > summary::after { transform: rotate(-135deg); margin-top: 6px; }
+        details.faq-item > summary:hover { color: var(--link); }
+        details.faq-item > summary:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 6px; }
+        .faq-a { padding: 0 0 18px; max-width: 60ch; }
+
+        .footer { color: var(--muted); font-size: 14px; padding: 8px 4px 0; }
+
+        @media (max-width: 520px) {
+            h1 { font-size: 32px; }
+            .card { padding: 24px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <input class="lang-radio" type="radio" name="lang" id="lang-de" checked>
+    <input class="lang-radio" type="radio" name="lang" id="lang-en">
+
+    <div class="wrap">
+        <header>
+            <div class="top">
+                <h1>easymmo Support</h1>
+                <div class="lang" role="group" aria-label="Sprache / Language">
+                    <label for="lang-de">Deutsch</label>
+                    <label for="lang-en">English</label>
+                </div>
+            </div>
+            <p class="subtitle de">Wir sind f&uuml;r dich da &ndash; hier findest du Antworten und Kontakt.</p>
+            <p class="subtitle en">We&rsquo;re here to help &ndash; find answers and get in touch below.</p>
+        </header>
+
+        <!-- ============ KONTAKT / CONTACT ============ -->
+        <section class="card de">
+            <h2>Kontakt</h2>
+            <p>Du hast eine Frage oder ein Problem mit easymmo? Schreib uns einfach &ndash; wir helfen dir gerne weiter:</p>
+            <p class="email"><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></p>
+            <p class="note">Wir antworten in der Regel innerhalb von ein bis zwei Werktagen.</p>
+        </section>
+        <section class="card en">
+            <h2>Contact</h2>
+            <p>Have a question or a problem with easymmo? Just drop us a line &ndash; we&rsquo;re happy to help:</p>
+            <p class="email"><a href="mailto:alexshagov@me.com">alexshagov@me.com</a></p>
+            <p class="note">We usually reply within one to two business days.</p>
+        </section>
+
+        <!-- ============ FAQ DE ============ -->
+        <section class="card de">
+            <h2>H&auml;ufig gestellte Fragen (FAQ)</h2>
+
+            <details class="faq-item">
+                <summary>Kostet easymmo etwas?</summary>
+                <div class="faq-a">Nein. easymmo ist vollst&auml;ndig kostenlos &ndash; ohne Werbung und ohne In-App-K&auml;ufe.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wo werden meine Daten gespeichert?</summary>
+                <div class="faq-a">easymmo arbeitet offline: Deine Objekte, Berechnungen und Dokumente bleiben lokal auf deinem Ger&auml;t. Aktivierst du iCloud, werden sie zus&auml;tzlich mit deiner privaten iCloud synchronisiert. Wir betreiben keine eigenen Server und haben zu keinem Zeitpunkt Zugriff auf deine Daten.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Kann ich easymmo auf mehreren Ger&auml;ten nutzen?</summary>
+                <div class="faq-a">Ja. Sobald du iCloud aktivierst, gleicht easymmo deine Daten automatisch &uuml;ber deine private iCloud zwischen deinen Ger&auml;ten ab.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wie sichere ich meine Daten?</summary>
+                <div class="faq-a">&Ouml;ffne den Profil-Tab und tippe auf &bdquo;Daten &amp; Backup&ldquo;. Dort erstellst du jederzeit ein manuelles Backup oder aktivierst automatische Backups, die in deiner iCloud Drive gesichert werden.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wie exportiere ich meine Daten?</summary>
+                <div class="faq-a">Im Profil-Tab unter &bdquo;Daten &amp; Backup&ldquo; erstellst du ein vollst&auml;ndiges Backup als <code>.easymmo</code>-Datei. Diese kannst du teilen, lokal sichern oder auf einem anderen Ger&auml;t wiederherstellen.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wie scanne ich ein Expos&eacute; ein?</summary>
+                <div class="faq-a">Beim Anlegen einer neuen Berechnung kannst du ein Expos&eacute; mit der Kamera scannen. easymmo liest die Eckdaten automatisch aus und f&uuml;llt die passenden Felder f&uuml;r dich vor.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wie sch&uuml;tze ich die App mit Face ID oder PIN?</summary>
+                <div class="faq-a">Im Profil-Tab aktivierst du die App-Sperre mit Face ID, Touch ID oder einem sechsstelligen PIN. Die App wird dann bei jedem Start gesichert.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Ersetzt easymmo eine Steuer- oder Rechtsberatung?</summary>
+                <div class="faq-a">Nein. easymmo ist ein Kalkulations- und Verwaltungswerkzeug und ersetzt keine individuelle Steuer-, Finanz- oder Rechtsberatung. Alle Ergebnisse dienen ausschlie&szlig;lich deiner eigenen Orientierung.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Die App funktioniert nicht &ndash; was kann ich tun?</summary>
+                <div class="faq-a">Starte die App neu oder installiere die neueste Version aus dem App Store. Hilft das nicht weiter, schreib uns kurz &ndash; idealerweise mit deinem Ger&auml;temodell und deiner iOS-Version.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Wie kann ich mein Konto l&ouml;schen?</summary>
+                <div class="faq-a">Schreib uns eine E-Mail an die oben genannte Adresse mit dem Betreff &bdquo;Konto l&ouml;schen&ldquo;. Wir entfernen dein Konto und alle damit verbundenen Daten dauerhaft.</div>
+            </details>
+        </section>
+
+        <!-- ============ FAQ EN ============ -->
+        <section class="card en">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <details class="faq-item">
+                <summary>Is easymmo free?</summary>
+                <div class="faq-a">Yes. easymmo is completely free &ndash; with no ads and no in-app purchases.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Where is my data stored?</summary>
+                <div class="faq-a">easymmo works offline: your properties, calculations and documents stay locally on your device. If you enable iCloud, they are additionally synced with your private iCloud. We don&rsquo;t run any servers of our own and never have access to your data.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I use easymmo on multiple devices?</summary>
+                <div class="faq-a">Yes. Once you enable iCloud, easymmo automatically syncs your data across your devices through your private iCloud.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I back up my data?</summary>
+                <div class="faq-a">Open the Profile tab and tap &ldquo;Daten &amp; Backup&rdquo; (Data &amp; Backup). There you can create a manual backup at any time or enable automatic backups that are stored in your iCloud Drive.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I export my data?</summary>
+                <div class="faq-a">In the Profile tab under &ldquo;Daten &amp; Backup&rdquo; (Data &amp; Backup) you can create a full backup as a <code>.easymmo</code> file. You can share it, store it locally, or restore it on another device.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I scan a property listing?</summary>
+                <div class="faq-a">When you create a new calculation, you can scan a property listing (Expos&eacute;) with your camera. easymmo automatically reads the key figures and pre-fills the relevant fields for you.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I lock the app with Face ID or a PIN?</summary>
+                <div class="faq-a">In the Profile tab you can enable the app lock with Face ID, Touch ID, or a six-digit PIN. The app is then protected every time it launches.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Does easymmo replace tax or legal advice?</summary>
+                <div class="faq-a">No. easymmo is a calculation and management tool and does not replace individual tax, financial, or legal advice. All results are for your own guidance only.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>The app isn&rsquo;t working &mdash; what can I do?</summary>
+                <div class="faq-a">Restart the app or install the latest version from the App Store. If that doesn&rsquo;t help, drop us a line &ndash; ideally including your device model and iOS version.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I delete my account?</summary>
+                <div class="faq-a">Send us an email to the address above with the subject &ldquo;Konto l&ouml;schen&rdquo; (Delete account). We will permanently remove your account and all associated data.</div>
+            </details>
+        </section>
+
+        <!-- ============ DATENSCHUTZ / PRIVACY ============ -->
+        <section class="card de">
+            <h2>Datenschutz</h2>
+            <p>easymmo funktioniert offline &ndash; deine Daten bleiben auf deinem Ger&auml;t. Die vollst&auml;ndige Datenschutzerkl&auml;rung findest du jederzeit in der App unter <strong>Profil&nbsp;&rsaquo;&nbsp;Datenschutz&nbsp;&amp;&nbsp;Rechtliches</strong>.</p>
+        </section>
+        <section class="card en">
+            <h2>Privacy</h2>
+            <p>easymmo works offline &ndash; your data stays on your device. You can find the full privacy policy any time in the app under <strong>Profil&nbsp;&rsaquo;&nbsp;Datenschutz&nbsp;&amp;&nbsp;Rechtliches</strong> (Privacy &amp; Legal).</p>
+        </section>
+
+        <p class="footer de">&copy; 2026 easymmo. Alle Rechte vorbehalten.</p>
+        <p class="footer en">&copy; 2026 easymmo. All rights reserved.</p>
+    </div>
 </body>
 </html>
